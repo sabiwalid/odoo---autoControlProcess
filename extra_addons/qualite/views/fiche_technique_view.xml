@@ -1,0 +1,156 @@
+<odoo>
+  <data>
+    <!-- explicit list view definition -->
+
+    <record model="ir.ui.view" id="qualite.fiche_technique_list">
+      <field name="name">Fiche Technique list</field>
+      <field name="model">qualite.fiche_technique</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="name"/>
+          <field name="famille_ids"/>
+          <field name="sous_famille_ids"/>
+          <field name="labo"/>
+        </tree>
+      </field>
+    </record>
+
+    <!-- form view -->
+    <record model="ir.ui.view" id="qualite.fiche_technique_form">
+      <field name="name">Fiche Technique form</field>
+      <field name="model">qualite.fiche_technique</field>
+      <field name="arch" type="xml">
+        <form>
+          <sheet>
+            <div class="oe_title">
+              <label for="name"/>
+                <h1>
+                  <field name="name"/>
+                </h1>
+            </div>
+            <notebook>
+            <page string="Information Générale" name="information_generale">
+              <group>
+                <group>
+                  <field name="famille_ids"/>
+                  <field name="sous_famille_ids"/>
+                  <field name="labo"/>
+                </group>
+                <group>
+                  <field name="echantillonnage"/>
+                  <field name="produit_code"/>
+                  <field name="uom_id"/>
+                </group>
+              </group>
+            </page>
+              <page name="composation" string="Composition et Usage">
+                <group name="group_1">
+                  <group string="Composition">
+                    <field name="ingredient_ids" nolabel="1">
+                      <tree editable="bottom">
+                        <field name="name"/>
+                      </tree>
+                    </field>
+                  </group>
+                  <group string="Caractéristiques microbiologiques">
+                    <field name="caract_microbio" nolabel="1">
+                      <tree editable="bottom">
+                        <field name="name"/>
+                        <field name="caract_microbio"/>
+                        <field name="valeur"/>
+                      </tree>
+                    </field>
+                  </group>
+                </group>
+                <group name="group_2">
+                  <group string="Dimensions et Poids">
+                    <field name="dimensions_poids_ids" nolabel="1">
+                      <tree editable="bottom">
+                        <field name="name"/>
+                        <field name="valeur_cible"/>
+                        <field name="valeur_min"/>
+                        <field name="valeur_max"/>
+                      </tree>
+                    </field>
+                  </group>
+                  <group string="Allergènes">
+                    <field name="allergenes_ids" nolabel="1">
+                      <tree editable="bottom">
+                        <field name="name"/>
+                        <field name="valeur"/>
+                      </tree>
+                    </field>
+                  </group>
+                </group>
+                <group name="group_3">
+                  <group string="Conseil d’utilisation">
+                    <field name="conseil" nolabel="1" placeholder="Conseil d’utilisation de l'article"/>
+                  </group>
+                  <group string="Conditionnement">
+                    <field name="conditionnement" nolabel="1"/>
+                  </group>
+                </group>
+                <group name="group_4">
+                  <group string="Durée de vie et conditions de conservation">
+                    <field name="duree_vie" nolabel="1" placeholder="DLC  =  240 jours à -18°C"/>
+                  </group>
+                  <group string="Usage prévu">
+                    <field name="usage" nolabel="1" placeholder="Consommation directe après cuisson, garnissage"/>
+                  </group>
+                </group>
+                <group name="group_5">
+                  <group string="Méthode de distribution: Produit Semi Fini">
+                    <field name="md_psf" nolabel="1"/>
+                  </group>
+                  <group string="Méthodes de livraison: Produit Fini">
+                    <field name="ml_pf" nolabel="1"/>
+                  </group>
+                </group>
+                <group name="group_6">
+                  <group string="Consommateur">
+                    <field name="consommateur" nolabel="1" placeholder="Toute personne non allergique à l’un des constituants"/>
+                  </group>
+                  <group string="Conditions de manipulation">
+                    <field name="condition_manipulation" nolabel="1"/>
+                  </group>
+                </group>
+              </page>
+              <page name="Mode opératoire" string="Mode opératoire">
+              </page>
+              <page name="Gestion des modifications" string="Cestion des modifications">
+              </page>
+              <page name="Plan d'échantillonnage" string="Plan d'échantillonnage">
+              </page>
+            </notebook>
+          </sheet>
+        </form>
+      </field>
+    </record>
+
+    <!-- actions opening views on models -->
+
+    <record model="ir.actions.act_window" id="qualite.action_window">
+      <field name="name">Fiche technique</field>
+      <field name="res_model">qualite.fiche_technique</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+
+
+
+
+    <!-- Top menu item -->
+
+    <menuitem name="qualite" id="qualite.menu_root"/>
+
+    <!-- menu categories -->
+
+    <menuitem name="Fiche Technique" id="qualite.menu_1" parent="qualite.menu_root"/>
+
+    <!-- actions -->
+
+    <menuitem name="Fiche Technique" id="qualite.menu_1_list" parent="qualite.menu_1"
+              action="qualite.action_window"/>
+
+
+  </data>
+</odoo>
