@@ -116,8 +116,35 @@
                 </group>
               </page>
               <page name="Mode opératoire" string="Mode opératoire">
+                <group>
+                    <field name="operations_ids" nolabel="1">
+                      <tree editable="bottom">
+                        <field name="description"/>
+                        <field name="operation"/>
+                        <field name="parametre"/>
+                        <field name="parametre_op"/>
+                        <field name="mesurable"/>
+                        <field name="val_tol_min"/>
+                        <field name="val_tol_max"/>
+                        <field name="oc"/>
+                      </tree>
+                    </field>
+                  </group>
               </page>
               <page name="Gestion des modifications" string="Cestion des modifications">
+                <group>
+                    <field name="gestion_modif_ids" nolabel="1">
+                      <tree editable="bottom">
+                        <field name="description_modif"/>
+                        <field name="date_modif"/>
+                        <field name="type_modif"/>
+                        <field name="motif_modif"/>
+                        <field name="Nautre_modif"/>
+                        <field name="version"/>
+                        <field name="Date_de_lancement"/>
+                      </tree>
+                    </field>
+                  </group>
               </page>
               <page name="Plan d'échantillonnage" string="Plan d'échantillonnage">
               </page>

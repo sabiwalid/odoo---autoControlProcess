@@ -2,6 +2,36 @@
 
 from odoo import models, fields, api
 
+class Operations(models.Model):
+    _name ='produit.operations'
+
+    description = fields.Char('Description de l\'operation')
+    operation = fields.Char('Operation')
+    parametre = fields.Char('Paramétre')
+    parametre_op = fields.Char('Paramétre d\'opération')
+    mesurable = fields.Char('Mesurable')
+    val_tol_min = fields.Float('Valeurs/Tolérances:Min')
+    val_tol_max = fields.Float('Valeurs/Tolérances:Max')
+    oc = fields.Char('OC')
+    fiche_technique_id = fields.Many2one('produit.fiche_technique', 'Fiche technique')
+
+
+
+
+class GestionModification(models.Model):
+    _name = 'gestion.modification'
+
+    description_modif = fields.Char('Description modification')
+    date_modif = fields.Date('Date modification')
+    type_modif = fields.Char('Type de modification')
+    motif_modif = fields.Char('Motif de modification')
+    Nautre_modif = fields.Char('Nautre de modification')
+    version = fields.Char('Version')
+    Date_de_lancement = fields.Date('Date de lancement')
+    fiche_technique_id = fields.Many2one('produit.fiche_technique', 'Fiche technique')
+
+
+
 
 class Famille(models.Model):
     _name = 'produit.famille'
@@ -97,6 +127,8 @@ class FicheTechnique(models.Model):
     consommateur = fields.Text('Consommateur')
     condition_manipulation = fields.Text('Conditions de manipulation')
     fiche_modif_ids = fields.One2many('produit.fiche_modif', 'fiche_technique_id', 'Gestion des modifications')
+    gestion_modif_ids = fields.One2many('gestion.modification','fiche_technique_id')
+    operations_ids = fields.One2many('produit.operations','fiche_technique_id')
 
 
 
