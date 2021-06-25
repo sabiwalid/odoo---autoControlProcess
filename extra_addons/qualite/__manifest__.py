@@ -27,6 +27,7 @@
         # 'security/ir.model.access.csv',
         'views/fiche_technique_view.xml',
         'views/templates.xml',
+        'views/update_res_company.xml',
     ],
     # only loaded in demonstration mode
     'demo': [

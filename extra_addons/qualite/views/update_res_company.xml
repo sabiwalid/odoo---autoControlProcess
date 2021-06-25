@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+		<record id="paie_view_company_form" model="ir.ui.view">
+            <field name="name">res.company.form</field>
+            <field name="model">res.company</field>
+			<field name="inherit_id" ref="base.view_company_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="/form/sheet/notebook/page[1]" position="after">
+
+                    <page string="Configuration" name="General configuration">
+                    	<group>
+                            <group string="Document">
+                                <field name="codification_document"/>
+                                <field name="version_document"/>
+                                <field name="page_document"/>
+                            </group>
+                            <group string="Enregistrement">
+                                <field name="codification_enregistrement"/>
+                                <field name="version_enregistrement"/>
+                                <field name="page_enregistrement"/>
+                            </group>
+                            <group string="Audit hygiène">
+                                <field name="codification_audit"/>
+                                <field name="version_audit"/>
+                                <field name="page_audit"/>
+                            </group>
+                            <group string="Audit place nette">
+                                <field name="codification_audit_pn"/>
+                                <field name="version_audit_pn"/>
+                                <field name="page_audit_pn"/>
+                            </group>
+                            <group string="Autocontrole Cuisine">
+                                <field name="codification_acc"/>
+                                <field name="version_acc"/>
+                                <field name="page_acc"/>
+                            </group>
+
+
+                            <group string="Fréquence Autocontrole Cuisine">
+                                <field name="frequence_c_cuisson"/>
+                                <field name="frequence_c_refroidissement"/>
+                                <field name="frequence_c_surgelation"/>
+                            </group>
+
+                            <group string="Autocontrole Boulangerie">
+                                <field name="codification_acb"/>
+                                <field name="version_acb"/>
+                                <field name="page_acb"/>
+                            </group>
+
+                            <group string="Fréquence Autocontrole Boulangerie">
+                                <field name="frequence_petrissage"/>
+                                <field name="frequence_pousse"/>
+                                <field name="frequence_refroidissement"/>
+                                <field name="frequence_surgelation"/>
+                            </group>
+
+                            <group string="Autocontrole Viennoiserie">
+                                <field name="codification_acv"/>
+                                <field name="version_acv"/>
+                                <field name="page_acv"/>
+                            </group>
+
+                            <group string="Fréquence Autocontrole Viennoiserie">
+                                <field name="frequence_petris"/>
+                                <field name="frequence_repos"/>
+                                <field name="frequence_pous"/>
+                                <field name="frequence_beurre"/>
+                                <field name="frequence_poids"/>
+                            </group>
+
+                            <group string="Autocontrole Pâtisserie">
+                                <field name="codification_acp"/>
+                                <field name="version_acp"/>
+                                <field name="page_acp"/>
+                            </group>
+
+                            <group string="Fréquence Autocontrole Pâtisserie">
+                                <field name="frequence_creme"/>
+                                <field name="frequence_petrissagemacarons"/>
+                                <field name="frequence_petrissagepateachoux"/>
+                                <field name="frequence_cuissonpateachoux"/>
+                                <field name="frequence_cake"/>
+                            </group>
+                            <group string="Non Conformité">
+                                <field name="codification_alert"/>
+                                <field name="version_alert"/>
+                                <field name="page_alert"/>
+                            </group>
+                            <group string="Réclamation">
+                                <field name="codification_alert_r"/>
+                                <field name="version_alert_r"/>
+                                <field name="page_alert_r"/>
+                            </group>
+                            <group string="Equipe Qualité">
+                                <field name="userR_id"/>
+                                <field name="userR_patisserie_id"/>
+                                <field name="userR_viennoiserie_id"/>
+                                <field name="userR_boulangerie_id"/>
+                                <field name="userR_cuisine_id"/>
+                                <field name="user1_id"/>
+                                <field name="user2_id"/>
+                                <field name="user3_id"/>
+                            </group>
+	                    </group>
+	                </page>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</openerp>
